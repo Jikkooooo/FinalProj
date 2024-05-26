@@ -1,5 +1,7 @@
 <?php
 include "db_conn.php" ?>
+
+<!--WAG MUNA GALAWIN YUNG NAVBAR THANKSSSS -Gico-->
 <!--navbar with bootstrap -->
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
