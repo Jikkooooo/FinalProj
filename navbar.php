@@ -31,18 +31,18 @@ include "db_conn.php" ?>
                 <li class="nav-item">
                     <a class="nav-link" href="faqs.php">FAQ</a>
                 </li>
-                <?php if (isset($_SESSION['fname'])) {  ?>
+                <?php if (isset($_SESSION['fname'/*=='admin'*/])) {  ?>
                     <li class="nav-item dropdown">
                 <?php if (isset($_SESSION['fname']))
                         echo "<a href='profile.php' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>". $_SESSION['fname']," ". $_SESSION['lname']."</a>"; ?>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="profile.php">PROFILE</a>
-                        <a class="dropdown-item" href="logout.php">SIGN OUT</a>
+                        <a class="dropdown-item" href="profile.php">Profile</a>
+                        <a class="dropdown-item" href="logout.php">Sign Out</a>
                     </div>
                 </li>
                 <?php } else { ?>
                     <li class="nav-item">
-                        <a href="login.php" class="nav-link"> LOGIN</a>
+                        <a href="login.php" class="nav-link"> Login/Sign Up </a>
                     </li>
                 <?php } ?>
                 

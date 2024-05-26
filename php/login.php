@@ -32,12 +32,20 @@ if(isset($_POST['uname']) &&
           $password =  $user['password'];
           $fname =  $user['fname'];
           $lname =  $user['lname'];
+          $email = $user['email'];
+          $address = $user['address'];
+          $contactNum = $user['contactNum'];
           $id =  $user['id'];
           if($username === $uname){
              if(password_verify($pass, $password)){
                  $_SESSION['id'] = $id;
                  $_SESSION['fname'] = $fname;
                  $_SESSION['lname'] = $lname;
+                 $_SESSION['email'] = $email;
+                 $_SESSION['address'] = $address;
+                 $_SESSION['contactNum'] = $contactNum;
+                 
+
 
                  header("Location: ../index.php");
                  exit;

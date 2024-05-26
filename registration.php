@@ -38,12 +38,6 @@
 				<input type="text" class="form-control" name="lname" value="<?php echo (isset($_GET['lname'])) ? $_GET['lname'] : "" ?>">
 			</div>
 
-
-			<div class="signUpTxtField">
-				<label class="form-label">Email</label>
-				<input type="text" class="form-control" name="email" value="<?php echo (isset($_GET['email'])) ? $_GET['email'] : "" ?>">
-			</div>
-
 			<div class="signUpTxtField">
 				<label class="form-label">Username</label>
 				<input type="text" class="form-control" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
@@ -52,6 +46,21 @@
 			<div class="signUpTxtField">
 				<label class="form-label">Password</label>
 				<input type="password" class="form-control" name="pass">
+			</div>
+
+			<div class="signUpTxtField">
+				<label class="form-label">Email</label>
+				<input type="text" class="form-control" name="email" value="<?php echo (isset($_GET['email'])) ? $_GET['email'] : "" ?>">
+			</div>
+
+			<div class="signUpTxtField">
+				<label class="form-label">Address</label>
+				<input type="text" class="form-control" name="address" value="<?php echo (isset($_GET['address'])) ? $_GET['address'] : "" ?>">
+			</div>
+
+			<div class="signUpTxtField">
+				<label class="form-label">Contact Number</label>
+				<input type="text" class="form-control" name="contactNum" value="<?php echo (isset($_GET['contactNum'])) ? $_GET['contactNum'] : "" ?>">
 			</div>
 			<br>
 			<button type="submit" class="btn btn-primary">Sign Up</button>
