@@ -15,7 +15,7 @@ include "db_conn.php" ?>
                 </li>
                 <!-- Dropdown content -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="gallery.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALLERY </a>
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALLERY </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="tattoo.php">TATTOO</a>
                         <a class="dropdown-item" href="piercing.php">PIERCING</a>
@@ -36,7 +36,10 @@ include "db_conn.php" ?>
                 <?php if (isset($_SESSION['fname'/*=='admin'*/])) {  ?>
                     <li class="nav-item dropdown">
                 <?php if (isset($_SESSION['fname']))
-                        echo "<a href='profile.php' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>". $_SESSION['fname']," ". $_SESSION['lname']."</a>"; ?>
+                        if($_SESSION['fname'] == "Administrator"){
+                        echo "<a href='profile.php' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>". $_SESSION['fname']."</a>"; ?>
+                        <?php } else { echo "<a href='profile.php' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>". $_SESSION['fname']," ". $_SESSION['lname']."</a>"; }?>
+                        
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="profile.php">Profile</a>
                         <a class="dropdown-item" href="logout.php">Sign Out</a>

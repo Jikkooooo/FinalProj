@@ -1,11 +1,13 @@
 <?php
 session_start();
-if (isset($_SESSION['id']) && 
-isset($_SESSION['fname']) && 
-isset($_SESSION['lname']) && 
-isset($_SESSION['email']) &&
-isset($_SESSION['address']) &&
-isset($_SESSION['contactNum'])) {
+if (
+	isset($_SESSION['id']) &&
+	isset($_SESSION['fname']) &&
+	isset($_SESSION['lname']) &&
+	isset($_SESSION['email']) &&
+	isset($_SESSION['address']) &&
+	isset($_SESSION['contactNum'])
+) {
 ?>
 	<!DOCTYPE html>
 	<html>
@@ -26,11 +28,35 @@ isset($_SESSION['contactNum'])) {
 			position: absolute;
 			padding: 50px;
 			border-radius: 10px;
+			margin-top: 5px;
 		}
 
-		/* Para sa link ng Profile Navigation*/
+		/* Para sa link ng Profile Navigation Admin*/
 		.navlink {
-			font-size: 25px;
+			font-size: 20px;
+			padding-bottom: 15px;
+		}
+
+		.sidenav2 {
+			list-style-type: none;
+			position: absolute;
+			padding: 50px;
+			border-radius: 10px;
+			margin-top: 5px;
+			width: 17.5%;
+			height: 50%;
+		}
+
+		/* Para sa link ng Profile Navigation User*/
+		.navlink2 {
+			font-size: 20px;
+			padding-bottom: 15px;
+		}
+
+		.avatar-container {
+			height: 20%;
+			background-image: url("image/bg.png");
+
 		}
 
 		.avatar-container {
@@ -49,10 +75,10 @@ isset($_SESSION['contactNum'])) {
 
 		.display-profile-details {
 			color: white;
-			margin-left: 15%;
+			margin-left: 18%;
 			margin-right: 5%;
 			margin-top: 5px;
-			padding: 50px;
+			padding: 4.2%;
 			font-size: 25px;
 			border: 1px solid white;
 			border-radius: 10px;
@@ -64,13 +90,13 @@ isset($_SESSION['contactNum'])) {
 			width: 40%;
 		}
 
-			/*Para sa Account Details*/
+		/*Para magpantay sa Account Details*/
 		.alignMe {
 			list-style-type: none;
 		}
 
 		.alignMe b {
-			display:inline-block;
+			display: inline-block;
 			width: 50%;
 			position: relative;
 			padding-left: 20%;
@@ -90,28 +116,56 @@ isset($_SESSION['contactNum'])) {
 		</div>
 
 		<div class="profile-sidenav">
-			<ul class="sidenav">
-				<li class="navlink">
-					<a href="">Edit Profile</a>
+			<?php if (isset($_SESSION['fname']))
+				if ($_SESSION['fname'] == "Administrator") {
+					echo "<ul class='sidenav'>
+				<li class='navlink'>
+					<a href=''>Search User</a>
 				</li>
-				<li class="navlink">
-					<a href="">Delete Account</a>
+				<li class='navlink'>
+					<a href=''>Delete User</a>
 				</li>
-			</ul>
+				<li class='navlink'>
+					<a href=''>Upload Gallery</a>
+				</li>
+				<li class='navlink'>
+					<a href=''>Upload Profile Pictures</a>
+				</li>
+				<li class='navlink'>
+					<a href=''>Manage Shop</a>
+				</li>
+			</ul>"; ?>
+
+			<?php } else {
+					echo "<ul class='sidenav2'>
+				<li class='navlink2'>
+					<a href=''>Edit Profile</a>
+				</li>
+				<li class='navlink2'>
+					<a href=''>Delete Account</a>
+				</li>
+			</ul>";
+				} ?>
 		</div>
 
 		<div class="display-profile-details">
 			<h3 style="padding-left: 22%;">Account Details</h3>
 			<br>
 			<?php if (isset($_SESSION['fname']))
-				echo "
-			<ul class='alignMe'>
+				if ($_SESSION['fname'] == "Administrator") {
+					echo "<ul class='alignMe'>
+				<li><b> Role</b> " . $_SESSION['fname'] . "</li>
+		  		</ul>"; ?>
+
+			<?php } else {
+					echo "<ul class='alignMe'>
 				<li><b>First Name</b> " . $_SESSION['fname'] . "</li>
 				<li><b>Last Name</b> " .  $_SESSION['lname'] . "</li>
 				<li><b>Email</b> " .  $_SESSION['email'] . "</li>
 				<li><b>Address</b> " .  $_SESSION['address'] . "</li>
 				<li><b>Contact Number</b> " .  $_SESSION['contactNum'] . "</li>
-		  	</ul>"; ?>
+		  		</ul>";
+				} ?>
 
 		</div>
 
