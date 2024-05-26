@@ -12,42 +12,42 @@
 <body>
 	<!--navbar with bootstrap -->
 	<nav class="navbar navbar-expand-lg navbar-light">
-		<div class="container-fluid">
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
-					</li>
-					<!-- Dropdown content -->
-					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALLERY </a>
-						<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-							<a class="dropdown-item" href="#">TATTOO</a>
-							<a class="dropdown-item" href="#">PIERCING</a>
-						</div>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">SHOP</a>
-					</li>
-					<li class="nav-item">
-						<a href="index.php"><img src="image/toxzlogo.png" width="70px"></a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link " href="#">ABOUT</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">FAQ</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="registration.php">LOG-IN</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php">HOME<span class="sr-only">(current)</span></a>
+          </li>
+          <!-- Dropdown content -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="gallery.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALLERY </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="tattoo.php">TATTOO</a>
+              <a class="dropdown-item" href="piercing.php">PIERCING</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shop.php">SHOP</a>
+          </li>
+          <li class="nav-item">
+            <a href="index.php"><img src="image/toxzlogo.png" width="70px"></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="about.php">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="faqs.php">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registration.php">LOG-IN</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 	<div class="" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
 
 		<form class="" action="php/login.php" method="post" style="background-color: gray; border-radius:3px; padding:25px; padding-left:40px; padding-right:40px;">

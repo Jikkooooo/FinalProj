@@ -23,23 +23,23 @@
           </li>
           <!-- Dropdown content -->
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALLERY </a>
+            <a class="nav-link dropdown-toggle" href="gallery.php" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">GALLERY </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">TATTOO</a>
-              <a class="dropdown-item" href="#">PIERCING</a>
+              <a class="dropdown-item" href="tattoo.php">TATTOO</a>
+              <a class="dropdown-item" href="piercing.php">PIERCING</a>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">SHOP</a>
+            <a class="nav-link" href="shop.php">SHOP</a>
           </li>
           <li class="nav-item">
             <a href="index.php"><img src="image/toxzlogo.png" width="70px"></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="#">ABOUT</a>
+            <a class="nav-link " href="about.php">ABOUT</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">FAQ</a>
+            <a class="nav-link" href="faqs.php">FAQ</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="registration.php">LOG-IN</a>
