@@ -22,7 +22,7 @@ include "db_conn.php" ?>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="shop.php">SHOP</a>
+                    <a class="nav-link" href="services.php">SERVICES</a>
                 </li>
                 <li class="nav-item">
                     <a href="index.php"><img src="image/toxzlogo.png" width="70px"></a>

@@ -84,12 +84,6 @@ if (
 			border-radius: 10px;
 		}
 
-		.detail-txt {
-			position: relative;
-			border-radius: 5px;
-			width: 40%;
-		}
-
 		/*Para magpantay sa Account Details*/
 		.alignMe {
 			list-style-type: none;
@@ -120,19 +114,16 @@ if (
 				if ($_SESSION['fname'] == "Administrator") {
 					echo "<ul class='sidenav'>
 				<li class='navlink'>
-					<a href=''>Search User</a>
+					<a href='search_user.php'>Search User</a>
 				</li>
 				<li class='navlink'>
-					<a href=''>Delete User</a>
+					<a href='delete_user.php'>Delete User</a>
 				</li>
 				<li class='navlink'>
-					<a href=''>Upload Gallery</a>
+					<a href='gallery_upload.php'>Upload Gallery</a>
 				</li>
 				<li class='navlink'>
 					<a href=''>Upload Profile Pictures</a>
-				</li>
-				<li class='navlink'>
-					<a href=''>Manage Shop</a>
 				</li>
 			</ul>"; ?>
 

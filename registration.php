@@ -7,14 +7,21 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 	<title>Sign Up</title>
-
+	<style>
+		.signup-form{
+			padding:50px;
+			border: 1px solid red;
+			border-radius: 10px;
+			width: 50%;
+		}
+	</style>
 <body>
 	<?php
 	include "navbar.php";
 	?>
 	<div class="" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
 
-		<form class="" action="php/signup.php" method="post" style="background-color:red;">
+		<form class="signup-form" action="php/signup.php" method="post">
 
 			<h4 class="">Create Account</h4><br>
 			<?php if (isset($_GET['error'])) { ?>

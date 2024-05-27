@@ -7,6 +7,14 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" href="style.css">
 	<title>Login</title>
+	<style>
+		.login-form{
+			padding:50px;
+			border: 1px solid red;
+			border-radius: 10px;
+			width: 30%;
+		}
+	</style>
 </head>
 
 <body>
@@ -15,7 +23,7 @@
 	?>
 	<div class="" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
 
-		<form class="" action="php/login.php" method="post" style="background-color: gray; border-radius:3px; padding:25px; padding-left:40px; padding-right:40px;">
+		<form class="login-form" action="php/login.php" method="post">
 
 			<h4 class="">LOGIN</h4><br>
 			<?php if (isset($_GET['error'])) { ?>
