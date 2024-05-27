@@ -8,19 +8,26 @@
     <link rel="stylesheet" href="style.css">
     <title>Search User</title>
     <style>
+        .search-bar {
+            padding-top: 10%;
+        }
+
         .display-user-details {
-			color: white;
-			margin-top: 5px;
-			padding: 3%;
-			font-size: 25px;
-			border: 1px solid white;
-			border-radius: 10px;
-		}
+            color: white;
+            margin-top: 5px;
+            padding: 3%;
+            font-size: 25px;
+            border: 1px solid white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: fit-content;
+            margin-inline: auto;
+        }
 
         .alignMe {
-			list-style-type: none;
-		}
-	</style>
+            list-style-type: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,13 +43,14 @@
     }
     ?>
     <br><br>
-    <div class="" style="display: flex; justify-content:center; align-items:center; ">
+    <div class="search-bar" style="display: flex; justify-content:center; align-items:center; ">
         <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="">
                 <h3 style="text-align: center;">Search User ID</h3>
                 <br>
-                <input type="text" name="id" class="form-control" />
-                <input type="submit" name="search" value="Search" />
+                <input type="text" name="id" class="form-control" style="height:40px; width:170px;" />
+                <br>
+                <center><input type="submit" name="search" value="Search" style="height:30px; width:70px;" /></center>
             </div>
         </form>
     </div>
@@ -80,13 +88,20 @@
                                 echo "<li><p><b>Contact Number</b> :&nbsp;" . $row["contactNum"] . "</p></li>";
                             }
                     } else
-                        echo "Record with an ID no. {$_GET['id']} is not in the database.";
+                        echo "Record with an ID no.&nbsp; <b> {$_GET['id']} </b> &nbsp;is not in the database.";
                 }
             }
         }
         mysqli_close($dbConn);
         ?>
+
     </div>
+    <br>
+    <div style=" max-width: fit-content;
+            margin-inline: auto;">
+        <center><button style="height:40px; width:170px; border-radius:10px;" onclick="window.location.href = 'profile.php';">Go Back</button></center>
+    </div>
+
 
 
 </body>

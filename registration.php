@@ -8,18 +8,21 @@
 	<link rel="stylesheet" href="style.css">
 	<title>Sign Up</title>
 	<style>
+		.register-container{
+			padding-top: 10%;
+		}
 		.signup-form{
 			padding:50px;
 			border: 1px solid red;
 			border-radius: 10px;
-			width: 50%;
+			width: 40%;
 		}
 	</style>
 <body>
 	<?php
 	include "navbar.php";
 	?>
-	<div class="" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
+	<div class="register-container" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
 
 		<form class="signup-form" action="php/signup.php" method="post">
 

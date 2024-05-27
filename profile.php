@@ -33,7 +33,7 @@ if (
 
 		/* Para sa link ng Profile Navigation Admin*/
 		.navlink {
-			font-size: 20px;
+			font-size: 15px;
 			padding-bottom: 15px;
 		}
 
@@ -49,20 +49,14 @@ if (
 
 		/* Para sa link ng Profile Navigation User*/
 		.navlink2 {
-			font-size: 20px;
+			font-size: 15px;
 			padding-bottom: 15px;
 		}
 
 		.avatar-container {
 			height: 20%;
 			background-image: url("image/bg.png");
-
-		}
-
-		.avatar-container {
-			height: 20%;
-			background-image: url("image/bg.png");
-
+			padding-top: 10% ;
 		}
 
 		.avatar {
@@ -99,7 +93,7 @@ if (
 		.alignMe b::after {
 			content: ":";
 			position: absolute;
-			right: 20%;
+			right: 5%;
 		}
 	</style>
 
@@ -124,6 +118,9 @@ if (
 				</li>
 				<li class='navlink'>
 					<a href=''>Upload Profile Pictures</a>
+				</li>
+				<li class='navlink'>
+					<a href=''>Appointment Bookings</a>
 				</li>
 			</ul>"; ?>
 
