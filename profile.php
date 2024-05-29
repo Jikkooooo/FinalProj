@@ -117,9 +117,6 @@ if (
 					<a href='gallery_upload.php'>Upload Gallery</a>
 				</li>
 				<li class='navlink'>
-					<a href=''>Upload Profile Pictures</a>
-				</li>
-				<li class='navlink'>
 					<a href=''>Appointment Bookings</a>
 				</li>
 			</ul>"; ?>

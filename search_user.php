@@ -10,6 +10,8 @@
     <style>
         .search-bar {
             padding-top: 10%;
+            max-width: fit-content;
+            margin-inline: auto;
         }
 
         .display-user-details {
@@ -35,9 +37,7 @@
     session_start();
     include "db_conn.php";
     include "navbar.php";
-    $dbConn = mysqli_connect("localhost", "root", "", "auth_db"); //PROCEDURAL
-
-    // Check connection
+    
     if (!$dbConn) {
         die("Connection failed: " . mysqli_connect_error());
     }
@@ -48,7 +48,7 @@
             <div class="">
                 <h3 style="text-align: center;">Search User ID</h3>
                 <br>
-                <input type="text" name="id" class="form-control" style="height:40px; width:170px;" />
+                <input type="text" name="id" class="form-control" style="height:40px; width:auto" />
                 <br>
                 <center><input type="submit" name="search" value="Search" style="height:30px; width:70px;" /></center>
             </div>

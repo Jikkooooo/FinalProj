@@ -10,15 +10,14 @@
 </head>
 
 <body>
-    <?php
-    session_start();
-    include "navbar.php";
-    ?>
-    <br>
-    <br>
-
-
-
+<?php
+	include "navbar.php";
+	?>
+	<div class="main-Container" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
+    <a class="nav-link" href="piercing_upload.php"><h2>PIERCING</h2></a>
+    <a class="nav-link" href="tattoo_upload.php"><h2>TATTOO</h2></a>
+		
+	</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

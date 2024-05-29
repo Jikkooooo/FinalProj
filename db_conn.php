@@ -5,6 +5,8 @@ $uName = "root";
 $pass = "";
 $db_name = "auth_db";
 
+$dbConn = mysqli_connect("localhost", "root", "", "auth_db");
+
 try {
     $conn = new PDO("mysql:host=$sName;dbname=$db_name", 
                     $uName, $pass);
