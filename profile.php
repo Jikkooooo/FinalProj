@@ -10,14 +10,11 @@ if (
 ) {
 ?>
 	<!DOCTYPE html>
-	<html>
+	<html lang="en">
 
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-		<link rel="stylesheet" href="style.css">
-		<title>PROFILE</title>
+		<title>Profile</title>
+		<link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
 	</head>
 
 	<!-- Nag Internal CSS muna kasi nagkakaproblema sa External CSS-->
@@ -56,7 +53,7 @@ if (
 		.avatar-container {
 			height: 20%;
 			background-image: url("image/bg.png");
-			padding-top: 10% ;
+			padding-top: 10%;
 		}
 
 		.avatar {
@@ -98,7 +95,7 @@ if (
 	</style>
 
 	<body>
-		<?php include "navbar.php"; ?>
+		<?php include "header.php"; ?>
 		<div class="avatar-container">
 			<img src="image/avatar.jpg" alt="Avatar" class="avatar">
 		</div>
@@ -108,16 +105,13 @@ if (
 				if ($_SESSION['fname'] == "Administrator") {
 					echo "<ul class='sidenav'>
 				<li class='navlink'>
-					<a href='search_user.php'>Search User</a>
-				</li>
-				<li class='navlink'>
-					<a href='delete_user.php'>Delete User</a>
+					<a href='manage_users.php'>Manage Users</a>
 				</li>
 				<li class='navlink'>
 					<a href='gallery_upload.php'>Upload Gallery</a>
 				</li>
 				<li class='navlink'>
-					<a href=''>Appointment Bookings</a>
+					<a href='bookings.php'>Appointment Bookings</a>
 				</li>
 			</ul>"; ?>
 

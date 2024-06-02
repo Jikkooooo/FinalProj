@@ -2,7 +2,7 @@
 <html lang="en">
 
     <head>
-        <title>FAQ</title>
+        <title>Tatttoo Consultation</title>
         <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
     </head>
 

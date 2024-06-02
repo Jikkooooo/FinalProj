@@ -2,18 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <title>Piercing Upload</title>
-
+    <title>Tattoo Upload</title>
+    <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
 </head>
 
 <body>
     <?php
     session_start();
-    include "navbar.php";
+    include "header.php";
     require "db_conn.php";
 
     ?>
@@ -22,9 +18,9 @@
         <h1>Upload File</h1>
         <form class="" action="" method="post" autocomplete="off" enctype="multipart/form-data">
             <label for="name">Name : </label>
-            <input type="text" name="name" id="name" required value=""> <br>
+            <input type="text" name="name" id="name" required> <br>
             <label for="image">Image : </label>
-            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" value=""> <br> <br>
+            <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"> <br> <br>
             <button type="submit" name="submit">Submit</button>
         </form>
         <?php
@@ -70,14 +66,14 @@
                     "
             <script>
               alert('Successfully Added');
-              document.location.href = 'piercing_upload.php';
+              document.location.href = 'tattoo_upload.php';
             </script>
             ";
                 }
             }
         }
         ?>
-        <a class="nav-link" href="upload2.php">
+        <a class="nav-link" href="tattoo_upload_data.php">
             <h2>DATA</h2>
         </a>
     </div>

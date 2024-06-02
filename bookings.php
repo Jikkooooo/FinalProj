@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>Tattoo</title>
-    <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
+    <head>
+        <title>Booking</title>
+        <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
     <style>
         .gallery {
             display: flex;
@@ -46,30 +46,13 @@
     <br>
     <br>
     <div class="container" style="padding-top: 10%;">
-        <h2 class="text-center my-4">Tattoo Gallery</h2>
-        <div class="gallery">
-            <?php
-
-
-            $sql = "SELECT t_img FROM tattoo_gallery";
-            $result = mysqli_query($dbConn, $sql);
-
-            if ($result && mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<div class="gallery-item">';
-                    echo '<img src="gallery/tattoo/' . $row['t_img'] . '" alt="Image">';
-                    echo '</div>';
-                }
-            } else {
-                echo "No images found.";
-            }
-
-            mysqli_close($dbConn);
-            ?>
-        </div>
+        
     </div>
 
-
+    <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
+    <?php
+    include 'footer.php';
+    ?>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
