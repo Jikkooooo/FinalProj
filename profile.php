@@ -8,7 +8,7 @@ if (
 	isset($_SESSION['address']) &&
 	isset($_SESSION['contactNum'])
 ) {
-?>
+	?>
 	<!DOCTYPE html>
 	<html lang="en">
 
@@ -53,7 +53,7 @@ if (
 		.avatar-container {
 			height: 20%;
 			background-image: url("image/bg.png");
-			padding-top: 10%;
+			padding-top: 5%;
 		}
 
 		.avatar {
@@ -95,15 +95,44 @@ if (
 	</style>
 
 	<body>
-		<?php include "header.php"; ?>
+
+		<?php include "header.php";
+
+		if (!$dbConn) {
+			die("Connection failed: " . mysqli_connect_error());
+		}
+		//IMPORTANTTT!!!!!
+		$sql = "SELECT * FROM users";
+		$result = mysqli_query($dbConn, $sql);
+		$users = [];
+		if ($result && mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_assoc($result)) {
+				$users[] = $row;
+			}
+		}
+
+		foreach ($users as $user) : ?>
+
+		<?php endforeach;
+
+		$id = $user['id'];
+		$fname = $user['fname'];
+		$lname = $user['lname'];
+		$email = $user['email'];
+		$address = $user['address'];
+		$contactNum = $user['contactNum'];
+		$profile_img = $user['profile_img'];
+		?>
+
+
+
 		<div class="avatar-container">
-			<img src="image/avatar.jpg" alt="Avatar" class="avatar">
+		<img src="profile_picture.php?user_id=<?php $id ?>" alt="Profile Image"  class="avatar">
 		</div>
 
-		<div class="profile-sidenav">
-			<?php if (isset($_SESSION['fname']))
-				if ($_SESSION['fname'] == "Administrator") {
-					echo "<ul class='sidenav'>
+		<?php if (isset($_SESSION['fname']))
+			if ($_SESSION['fname'] == "Administrator") {
+				echo "<ul class='sidenav'>
 				<li class='navlink'>
 					<a href='manage_users.php'>Manage Users</a>
 				</li>
@@ -113,18 +142,21 @@ if (
 				<li class='navlink'>
 					<a href='bookings.php'>Appointment Bookings</a>
 				</li>
+				<li class='navlink'>
+					<a href='accepted_booking.php'>Accepted Appointments</a>
+				</li>
 			</ul>"; ?>
 
-			<?php } else {
-					echo "<ul class='sidenav2'>
+		<?php } else {
+				echo "<ul class='sidenav2'>
 				<li class='navlink2'>
-					<a href=''>Edit Profile</a>
+					<a href='edit_user.php'>Edit Profile</a>
 				</li>
 				<li class='navlink2'>
 					<a href=''>Delete Account</a>
 				</li>
 			</ul>";
-				} ?>
+			} ?>
 		</div>
 
 		<div class="display-profile-details">
@@ -162,3 +194,4 @@ if (
 	header("Location: login.php");
 	exit;
 } ?>
+

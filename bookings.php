@@ -5,40 +5,14 @@
     <title>Booking</title>
     <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
     <style>
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .gallery-item {
-            flex-basis: calc(33.333% - 10px);
-            box-sizing: border-box;
-            margin-bottom: 10px;
-        }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                flex-basis: calc(50% - 10px);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-item {
-                flex-basis: 100%;
-            }
-        }
-
+        
         .btn-custom {
             width: 100%;
             margin-bottom: 10px;
             /* Ensure there is space between the buttons */
+        }
+        h2 {
+            text-align: center;
         }
     </style>
 </head>
@@ -76,7 +50,7 @@
         ?>
 
         <div class="container mt-5">
-            <h2 class="mb-4">Dashboard</h2>
+            <h2>Appointment Bookings</h2>
 
             <?php if ($result->num_rows > 0) : ?>
                 <table class="table table-bordered">
@@ -130,7 +104,7 @@
                 <p class="alert alert-info">No data found.</p>
             <?php endif; ?>
 
-            <?php $dbConn->close(); // Close the database connection 
+            <?php $dbConn->close();
             ?>
         </div>
     </div>

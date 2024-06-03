@@ -2,13 +2,9 @@
 <html lang="en">
 
 <head>
-    <title>Tatttoo Consultation</title>
+    <title>Edit</title>
     <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
     <style>
-        .edit-container {
-            padding-top: 10%;
-        }
-
         .edit_form {
             padding: 50px;
             border: 1px solid red;
@@ -23,8 +19,6 @@
 </head>
 
 <body>
-
-
     <?php
     session_start();
     include "db_conn.php";
@@ -33,18 +27,36 @@
     if (!$dbConn) {
         die("Connection failed: " . mysqli_connect_error());
     }
+    //IMPORTANTTT!!!!!
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($dbConn, $sql);
+    $users = [];
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[] = $row;
+        }
+    }
+
+    foreach ($users as $user) : ?>
+
+        <?php endforeach;
+    //TIL HEREEEEEE
 
     // Initialize variables
-    $id = '';
-    $fname = '';
-    $lname = '';
-    $email = '';
-    $address = '';
-    $contactNum = '';
+    $id = $user['id'];
+    $fname = $user['fname'];
+    $lname = $user['lname'];
+    $email = $user['email'];
+    $address = $user['address'];
+    $contactNum = $user['contactNum'];
 
-    // Check if studID is provided in the URL
     if (isset($_GET['id'])) {
-        $id = $_GET['id'];
+        if ($_SESSION['fname'] == "Administrator") {
+            $id = $_GET['id']; ?>
+    <?php } else {
+            $id = $_SESSION['id'];
+        }
+
 
         if (isset($_POST['update'])) {
             // Update the record here
@@ -109,7 +121,7 @@
             <form class="edit_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id; ?>" method="POST">
                 <input type="hidden" name="edt_id" value="<?php echo $id; ?>">
 
-                <h4 class="">Edit Users</h4><br>
+                <h4>Edit Profile</h4><br>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -132,12 +144,11 @@
                         <label class="form-label">Contact Number</label>
                         <input type="text" class="form-control" name="edt_contactNum" value="<?php echo $contactNum; ?>">
                     </div>
-
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">Address</label>
-                    <input type="text" class="form-control" name="edt_address" value=" <?php echo $address; ?>">
+                    <input type="text" class="form-control" name="edt_address" value="<?php echo $address; ?>">
                 </div>
 
                 <br>
