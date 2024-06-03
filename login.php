@@ -22,6 +22,16 @@
 		</div>
 	</section>
 
+	<section id="profile-message" class="profile-message">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-12 d-flex align-items-center justify-content-center">
+					<h2>LOGIN</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<section id="login" class="login">
 		<div class="container">
 			<div class="row justify-content-center">

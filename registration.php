@@ -14,10 +14,20 @@
 	<section id="signup-header" class="signup-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12 mb-4">
+				<div class="col-lg-12">
 					<div class="image-wrapper">
 						<img src="image/signup-header.png" class="img-fluid" alt="Welcome Back">
 					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="profile-message" class="profile-message">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-12 d-flex align-items-center justify-content-center">
+					<h2>REGISTER</h2>
 				</div>
 			</div>
 		</div>
