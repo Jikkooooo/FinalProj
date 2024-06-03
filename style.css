@@ -1,11 +1,13 @@
-
+/*--------------------------------------------------------------
+# GENERAL
+--------------------------------------------------------------*/
 body {
   overflow-y: scroll;
   padding: 0;
   margin-left: 0;
   margin-right: 0;
   background-color: #000000;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23ffffff' fill-opacity='0.11' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   color: whitesmoke;
   font-family: "Bebas Neue";
 }
@@ -114,17 +116,25 @@ body {
   font-family: "Bebas Neue";
 }
 
+#footer .row {
+  margin-bottom: 20px;
+}
+
 #footer .footer-top {
   background-image: url(image/footer-bg.png);
   border-bottom: 1px solid #222222;
   padding: 60px 0 30px 0;
 }
 
-#footer .footer-top .footer-info {
-  margin-bottom: 30px;
+#footer .footer-top .footer-info,
+#footer .footer-top .footer-links {
+  margin-bottom: 0px;
+  padding-right: 20px; /* Add some padding to the right */
+  flex: 1; /* Allow columns to take equal space */
 }
 
-#footer .footer-top .footer-info h4 {
+#footer .footer-top .footer-info h4,
+#footer .footer-top .footer-links h4 {
   font-size: 25px;
   margin: 0 0 0 0;
   padding: 2px 0 2px 0;
@@ -132,7 +142,8 @@ body {
   text-shadow: 0 0 10px #da1e17;
 }
 
-#footer .footer-top .footer-info p {
+#footer .footer-top .footer-info p,
+#footer .footer-top .footer-links ul {
   font-size: 15px;
   line-height: 24px;
   margin-bottom: 15px;
@@ -144,7 +155,7 @@ body {
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #292929;
+  background: #141414;
   color: #fff;
   line-height: 1;
   padding: 10px 0;
@@ -170,12 +181,6 @@ body {
   padding-bottom: 12px;
 }
 
-#footer .footer-top .footer-links {
-  margin-bottom: 30px;
-  font-size: 22px;
-  text-align: center;
-}
-
 #footer .footer-top .footer-links ul {
   list-style: none;
   padding: 0;
@@ -193,6 +198,8 @@ body {
   padding: 5px 0;
   display: flex;
   align-items: center;
+  font-size: 25px;
+  font-family: "Bebas Neue";
 }
 
 #footer .footer-top .footer-links ul li:first-child {
@@ -223,21 +230,49 @@ body {
   margin-top: 20px;
 }
 
-#footer .footer-links .nav-item{
+#footer .footer-links .nav-item {
   padding: 0;
   margin: 0px;
 }
-
 
 #footer .nav-item .dropdown-menu {
   background-color: rgb(0, 0, 0);
 }
 
+#footer .footer-top .container .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+#footer .footer-top .container .row > div {
+  border-right: 1px solid #ffffff4d;
+}
+
+#footer .footer-top .container .row > div:last-child {
+  border-right: none;
+}
+
+@media (max-width: 767px) {
+  #footer .footer-top .container .row {
+    flex-direction: column;
+  }
+
+  #footer .footer-top .container .row > div {
+    border-right: none;
+    border-bottom: 1px solid #ffffff4d;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  #footer .footer-top .container .row > div:last-child {
+    border-bottom: none;
+  }
+}
 
 /*--------------------------------------------------------------
 # BACK TO TOP
 --------------------------------------------------------------*/
-
 #back-to-top {
   display: none;
   position: fixed;
@@ -276,7 +311,7 @@ body {
 
 #hero:before {
   content: "";
-  background: #00000099;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.027) 0%, rgba(0, 0, 0, 0.925) 100%);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -336,10 +371,27 @@ body {
 # (index) VISIT US
 --------------------------------------------------------------*/
 .visit-us {
+  width: 100%;
+  height:100%;
   margin: 120px 0 90px;
-  background-color: #da1e17;
+  background: linear-gradient(-45deg, #da1e17, #ad0932, #eb4217, #da1e17);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
   padding: 25px 10px 40px;
 }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 
 .visit-us .section-title h2{
   margin: 0 0 30px 0;
@@ -362,7 +414,7 @@ body {
 
 .visit-us .info i {
   font-size: 20px;
-  background: #292929;
+  background: #141414;
   color: #ffffff;
   float: left;
   width: 55px;
@@ -372,6 +424,11 @@ body {
   align-items: center;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
+}
+
+.visit-us .info i:hover {
+  background: #ffffff;
+  color: #da1e17;;
 }
 
 .visit-us .info p {
@@ -409,9 +466,6 @@ body {
 .bg-black{
   background-color: #000000;
 }
-.carousel-inner {
-  box-shadow: 0px 0px 30px 15px rgba(255, 255, 255, 0.11);
-}
 
 .carousel-item {
   min-width: 300px;
@@ -441,7 +495,7 @@ body {
   text-align: center;
   padding: 80px 30px;
   transition: all ease-in-out 0.3s;
-  background: #292929;
+  background: #141414;
   border: 2px solid #363636;
 }
 
@@ -464,6 +518,15 @@ body {
   filter: invert(1);
 }
 
+.services .icon-box .icon:hover {
+  background-color: whitesmoke;
+}
+
+.services .icon-box .icon img:hover {
+  filter: invert(0);
+}
+
+
 .services .icon-box h4 {
   font-weight: 700;
   margin-bottom: 10px;
@@ -485,6 +548,7 @@ body {
   font-size: 16px;
   margin-bottom: 0;
   font-family: "Oswald";
+  font-weight: 250;
 }
 
 .services .icon-box:hover {
@@ -497,23 +561,47 @@ body {
   margin-bottom: 0px;
 }
 
-
 /*--------------------------------------------------------------
-# APPOINTMENT
+# (appointment) APPOINTMENT HEADER
 --------------------------------------------------------------*/
-#contact {
+#appointment-header {
   padding-top: 8%;
   width: 100%;
-  min-height: 120vh;
+  min-height: 50vh;
+  max-height: 70vh;
   background: url("image/bg.png") top center;
   background-size: cover;
+  background-position: center;
   position: relative;
   z-index: 1;
+  margin-bottom: 50px;
+  display: flex;
+  align-items: flex-end;
 }
 
-#contact:before {
+#appointment-header .container {
+  height: 100%;
+}
+
+#appointment-header .row {
+  height: 100%;
+}
+
+#appointment-header .image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+
+#appointment-header .image-wrapper img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#appointment-header:before {
   content: "";
-  background: rgba(0, 0, 0, 0.6);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.027) 0%, rgba(0, 0, 0, 0.925) 100%);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -521,119 +609,71 @@ body {
   right: 0;
 }
 
-#contact .container {
-  position: relative;
-  /* padding-top: 74px; */
+@media (min-width: 1024px) {
+  #appointment-header {
+    background-attachment: fixed;
+  }
 }
 
-.contact .container img{
+@media (max-width: 1024px) {
+  #appointment-header {
+    padding-top: 20%;
+    background-position: center center;
+  }
+
+  #appointment-header img {
+    width: 100%; /* Ensure image scales properly */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+
+/*--------------------------------------------------------------
+# (appointment) APPOINTMENT FORM
+--------------------------------------------------------------*/
+#appointment .container {
+  position: relative;
+}
+
+.appointment .container img{
   margin-bottom: 30px;
 }
 
-.contact .info {
+.appointment .php-email-form {
+  width: 100%;
   border-top: 1px solid #da1e17;
   border-bottom: 1px solid #da1e17;
   padding: 30px;
   background: #000000;
-  width: 100%;
-  box-shadow: 0 0 24px 0 rgba(255, 255, 255, 0.12);
-}
-
-.contact .info i {
   font-size: 20px;
-  color: #ffffff;
-  float: left;
-  width: 44px;
-  height: 44px;
-  background: #363535;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  transition: all 0.3s ease-in-out;
 }
 
-.contact .info h4 {
-  padding: 0 0 0 60px;
-  font-size: 25px;
-  margin-bottom: 5px;
-  color: #ffffff;
-  letter-spacing: 1px;
-}
-
-.contact .info p {
-  padding: 0 0 10px 60px;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #ffffff;
-  font-family: "Oswald";
-}
-
-.contact .info .social-links {
-  padding-left: 10px;
-}
-
-.contact .info .social-links a {
-  font-size: 18px;
-  display: inline-block;
-  background: #ffffff;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
-  margin-right: 10px;
-}
-
-.contact .info .social-links a:hover {
-  background: #da1e17;
-  color: #fff;
-}
-
-.contact .info .email:hover i,
-.contact .info .address:hover i,
-.contact .info .phone:hover i {
-  background: #da1e17;
-  color: #fff;
-}
-
-.contact .php-email-form {
-  width: 100%;
-  border-top: 1px solid #da1e17;
-  border-bottom: 1px solid #da1e17;
-  padding: 30px;
-  background: #000000;
-  box-shadow: 0 0 24px 0 rgba(255, 255, 255, 0.12);
-}
-
-.contact .php-email-form .form-group {
+.appointment .php-email-form .form-group {
   padding-bottom: 8px;
 }
 
-.contact .php-email-form input,
-.contact .php-email-form textarea {
+.appointment .php-email-form input,
+.appointment .php-email-form textarea {
   background-color: #000000;
   border-color: #363535;
   color: #fff;
   border-radius: 0;
   box-shadow: none;
-  font-size: 14px;
+  font-size: 18px;
+  font-family: "Oswald";
   border-radius: 4px;
 }
 
-.contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
+.appointment .php-email-form input:focus,
+.appointment .php-email-form textarea:focus {
   border-color: #da1e17;
 }
 
-.contact .php-email-form input {
+.appointment .php-email-form input {
   height: 44px;
 }
 
-.contact .php-email-form textarea {
+.appointment .php-email-form textarea {
   padding: 10px 12px;
 }
 
@@ -656,6 +696,7 @@ body {
 .custom-select option {
   background-color: black;
   color: #ffffff;
+  font-family: "Oswald";
 }
 
 .custom-select option:focus {
@@ -674,7 +715,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-radius: 4px;
   margin-right: 2px;
   opacity: 0.6;
-  filter: invert(0.8);
+  filter: invert(1);
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator:hover {
@@ -686,7 +727,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   border-radius: 4px;
   margin-right: 2px;
   opacity: 0.6;
-  filter: invert(0.8);
+  filter: invert(1);
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator:hover {
@@ -694,28 +735,327 @@ input[type="time"]::-webkit-calendar-picker-indicator:hover {
 }
 
 /*--------------------------------------------------------------
-# LOGIN
+# (appointment) VISIT US
 --------------------------------------------------------------*/
-.login-container {
+.visit-us-ap {
+  margin: 120px 0 90px;
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  padding: 25px 10px 40px;
+}
+
+@media (min-width: 1024px) {
+  .visit-us-ap {
+    background-attachment: fixed;
+  }
+}
+
+.visit-us-ap .section-title h2{
+  margin: 0 0 30px 0;
+  font-size: 80px;
+  text-shadow: 0 0 10px #00000071;
+}
+
+.visit-us-ap .info {
+  width: 100%;
+}
+
+.visit-us-ap .info h4 {
+  padding: 0 0 0 70px;
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.visit-us-ap .info i {
+  font-size: 20px;
+  background: #da1e17;
+  color: #ffffff;
+  float: left;
+  width: 55px;
+  height: 55px;
   display: flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: all 0.3s ease-in-out;
 }
 
-.login-container .login-form {
-  background-color: gray;
-  border-radius:3px; padding:25px;
-  padding-left:40px;
-  padding-right:40px;
+.visit-us-ap .info i:hover {
+  background: #ffffff;
+  color: #da1e17;;
+}
+
+.visit-us-ap .info p {
+  padding: 0 0 0 70px;
+  margin-bottom: 0;
+  font-size: 15px;
+  color: #ffffff;
+  font-family: "Oswald";
 }
 
 
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
 
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
+/*--------------------------------------------------------------
+# (login) LOGIN HEADER
+--------------------------------------------------------------*/
+#login-header {
+  padding-top: 10%;
+  width: 100%;
+  min-height: 50vh;
+  max-height: 70vh;
+  background: url("image/bg.png") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-end;
+}
 
+#login-header .container {
+  height: 100%;
+}
 
+#login-header .row {
+  height: 100%;
+}
 
+#login-header .image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+
+#login-header .image-wrapper img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#login-header:before {
+  content: "";
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.027) 0%, rgba(0, 0, 0, 0.925) 100%);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 1024px) {
+  #login-header {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 1024px) {
+  #login-header {
+    padding-top: 20%;
+    background-position: center center;
+  }
+
+  #login-header img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+# (login) LOGIN FORM
+--------------------------------------------------------------*/
+.login {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 120px;;
+}
+
+.login .php-email-form {
+  margin-top: 10%;
+  width: 100%;
+  border-top: 1px solid #da1e17;
+  border-bottom: 1px solid #da1e17;
+  padding: 50px;
+  background: #000000;
+  font-size: 20px;
+}
+
+.login .php-email-form .form-label {
+  letter-spacing: 2px;
+}
+
+.link-secondary {
+  font-family: "Oswald";
+  color: #fff;
+  font-size: 18px;
+}
+
+.link-secondary:hover {
+  color: #da1e17;
+}
+
+.login .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.login .php-email-form input,
+.login .php-email-form textarea {
+  background-color: #000000;
+  border-color: #363535;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 18px;
+  font-family: "Oswald";
+  border-radius: 4px;
+}
+
+.login .php-email-form input:focus,
+.login .php-email-form textarea:focus {
+  border-color: #da1e17;
+}
+
+.login .php-email-form input {
+  height: 45px;
+}
+
+/*--------------------------------------------------------------
+# (signup) SIGNUP HEADER
+--------------------------------------------------------------*/
+#signup-header {
+  padding-top: 10%;
+  width: 100%;
+  min-height: 50vh;
+  max-height: 70vh;
+  background: url("image/bg.png") top center;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0px;
+  display: flex;
+  align-items: flex-end;
+}
+
+#signup-header .container {
+  height: 100%;
+}
+
+#signup-header .row {
+  height: 100%;
+}
+
+#signup-header .image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+}
+
+#signup-header .image-wrapper img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+#signup-header:before {
+  content: "";
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.027) 0%, rgba(0, 0, 0, 0.925) 100%);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (min-width: 1024px) {
+  #signup-header {
+    background-attachment: fixed;
+  }
+}
+
+@media (max-width: 1024px) {
+  #signup-header {
+    padding-top: 20%;
+    background-position: center center;
+  }
+
+  #signup-header img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+# (signup) SIGNUP FORM
+--------------------------------------------------------------*/
+.signup {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 120px;;
+}
+
+.signup .php-email-form {
+  margin-top: 10%;
+  width: 100%;
+  border-top: 1px solid #da1e17;
+  border-bottom: 1px solid #da1e17;
+  padding: 50px;
+  background: #000000;
+  font-size: 20px;
+}
+
+.signup .php-email-form .form-label {
+  letter-spacing: 2px;
+}
+
+.link-secondary {
+  font-family: "Oswald";
+  color: #fff;
+  font-size: 18px;
+}
+
+.link-secondary:hover {
+  color: #da1e17;
+}
+
+.signup .php-email-form .form-group {
+  padding-bottom: 8px;
+}
+
+.signup .php-email-form input,
+.signup .php-email-form textarea {
+  background-color: #000000;
+  border-color: #363535;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 18px;
+  font-family: "Oswald";
+  border-radius: 4px;
+}
+
+.signup .php-email-form input:focus,
+.signup .php-email-form textarea:focus {
+  border-color: #da1e17;
+}
+
+.login .php-email-form input {
+  height: 45px;
+}
 
 .sidenav {
   list-style-type: none; /* Remove bullets */

@@ -4,91 +4,96 @@
 <head>
 	<title>Sign Up</title>
 	<link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
-	<style>
-		.register-container {
-			padding-top: 10%;
-		}
-
-		.signup-form {
-			padding: 50px;
-			border: 1px solid red;
-			border-radius: 10px;
-			width: 40%;
-			max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-		}
-	</style>
 </head>
 
 <body>
 	<?php
 	include 'header.php';
 	?>
-	<div class="register-container" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
 
-		<form class="signup-form" action="php/signup.php" method="post">
-
-			<h4 class="">Create Account</h4><br>
-			<?php if (isset($_GET['error'])) { ?>
-				<div class="alert alert-danger" role="alert">
-					<?php echo $_GET['error']; ?>
-				</div>
-			<?php } ?>
-
-			<?php if (isset($_GET['success'])) { ?>
-				<div class="alert alert-success" role="alert">
-					<?php echo $_GET['success']; ?>
-				</div>
-			<?php } ?>
-
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label class="form-label">First Name</label>
-					<input type="text" class="form-control" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
-				</div>
-
-				<div class="form-group col-md-6">
-					<label class="form-label">Last Name</label>
-					<input type="text" class="form-control" name="lname" value="<?php echo (isset($_GET['lname'])) ? $_GET['lname'] : "" ?>">
+	<section id="signup-header" class="signup-header">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 mb-4">
+					<div class="image-wrapper">
+						<img src="image/signup-header.png" class="img-fluid" alt="Welcome Back">
+					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label class="form-label">Username</label>
-					<input type="text" class="form-control" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
-				</div>
+	<section id="signup" class="signup">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 d-flex align-items-center" id="input-section">
+					<form class="php-email-form" action="php/signup.php" method="post">
 
-				<div class="form-group col-md-6">
-					<label class="form-label">Password</label>
-					<input type="password" class="form-control" name="pass">
+						<?php if (isset($_GET['error'])) { ?>
+							<div class="alert alert-danger" role="alert">
+								<?php echo $_GET['error']; ?>
+							</div>
+						<?php } ?>
+
+						<?php if (isset($_GET['success'])) { ?>
+							<div class="alert alert-success" role="alert">
+								<?php echo $_GET['success']; ?>
+							</div>
+						<?php } ?>
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label class="form-label">First Name</label>
+								<input type="text" class="form-control" name="fname" value="<?php echo (isset($_GET['fname'])) ? $_GET['fname'] : "" ?>">
+							</div>
+
+							<div class="form-group col-md-6">
+								<label class="form-label">Last Name</label>
+								<input type="text" class="form-control" name="lname" value="<?php echo (isset($_GET['lname'])) ? $_GET['lname'] : "" ?>">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label class="form-label">Username</label>
+								<input type="text" class="form-control" name="uname" value="<?php echo (isset($_GET['uname'])) ? $_GET['uname'] : "" ?>">
+							</div>
+
+							<div class="form-group col-md-6">
+								<label class="form-label">Password</label>
+								<input type="password" class="form-control" name="pass">
+							</div>
+						</div>
+
+						<div class="form-row">
+							<div class="form-group col-md-6">
+								<label class="form-label">Email</label>
+								<input type="text" class="form-control" name="email" value="<?php echo (isset($_GET['email'])) ? $_GET['email'] : "" ?>">
+							</div>
+							<div class="form-group col-md-6">
+								<label class="form-label">Contact Number</label>
+								<input type="text" class="form-control" name="contactNum" value="<?php echo (isset($_GET['contactNum'])) ? $_GET['contactNum'] : "" ?>">
+							</div>
+
+						</div>
+
+						<div class="form-group">
+							<label class="form-label">Address</label>
+							<input type="text" class="form-control" name="address" value="<?php echo (isset($_GET['address'])) ? $_GET['address'] : "" ?>">
+						</div>
+						<br>
+						<div class="text-center">
+							<button type="submit" class="btn btn-danger">Sign Up</button>
+						</div>
+						<br>
+						<div class="text-center">
+							<h4><a href="login.php" class="link-secondary">Already have an account? <br>Login Now</a></h4>
+						</div>
+					</form>
 				</div>
 			</div>
-
-			<div class="form-row">
-				<div class="form-group col-md-6">
-					<label class="form-label">Email</label>
-					<input type="text" class="form-control" name="email" value="<?php echo (isset($_GET['email'])) ? $_GET['email'] : "" ?>">
-				</div>
-				<div class="form-group col-md-6">
-					<label class="form-label">Contact Number</label>
-					<input type="text" class="form-control" name="contactNum" value="<?php echo (isset($_GET['contactNum'])) ? $_GET['contactNum'] : "" ?>">
-				</div>
-				
-			</div>
-
-			<div class="form-group">
-                <label class="form-label">Address</label>
-                <input type="text" class="form-control" name="address" value="<?php echo (isset($_GET['address'])) ? $_GET['address'] : "" ?>">
-            </div>
-
-			<br>
-			<p><button type="submit" class="btn btn-primary">Sign Up</button>
-			Already have an account?<a href="login.php" class="btn btn-link">Login</a></p>
-		</form>
-	</div>
+		</div>
+	</section>
 	<button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
 	<?php
 	include 'footer.php';

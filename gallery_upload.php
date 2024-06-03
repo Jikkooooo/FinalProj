@@ -8,15 +8,21 @@
 
 <body>
     <?php
+    session_start();
     include "header.php";
     ?>
     <div class="main-Container" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
-        <a class="nav-link" href="piercing_upload.php">
-            <h2>PIERCING</h2>
-        </a>
-        <a class="nav-link" href="tattoo_upload.php">
-            <h2>TATTOO</h2>
-        </a>
+        <div style="padding: 50px; border: 1px solid red; border-radius: 10px; width: 40%; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 10px;">
+            <a class="nav-link" href="piercing_upload.php">
+                <center><h2> Upload in PIERCING</h2></center>
+            </a>
+        </div>
+
+        <div style="padding: 50px; border: 1px solid red; border-radius: 10px; width: 40%; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 10px;">
+            <a class="nav-link" href="tattoo_upload.php">
+                <center><h2>Upload in TATTOO</h2></center>
+            </a>
+        </div>
 
     </div>
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
