@@ -150,8 +150,13 @@ if (
 		<?php } else {
 				echo "<ul class='sidenav2'>
 				<li class='navlink2'>
+					<a href='booking_status.php'>Booking Status</a>
+				</li>
+
+				<li class='navlink2'>
 					<a href='edit_user.php'>Edit Profile</a>
 				</li>
+				
 				<li class='navlink2'>
 					<a href=''>Delete Account</a>
 				</li>
