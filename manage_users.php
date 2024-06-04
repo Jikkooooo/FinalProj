@@ -82,51 +82,6 @@ mysqli_close($dbConn);
     <div style="max-width: fit-content; margin-inline: auto;">
         <center><button style="height:40px; width:170px; border-radius:10px;" onclick="window.location.href = 'profile.php';">Go Back</button></center>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const users = <?php echo json_encode($users); ?>;
-
-            document.getElementById('searchButton').addEventListener('click', () => {
-                const searchId = document.getElementById('searchId').value;
-                const user = users.find(user => user.id == searchId);
-                const userDetails = document.getElementById('userDetails');
-
-                if (user) {
-                    userDetails.innerHTML = `
-                        <ul class='alignMe'>
-                            <li><p><b>ID</b> :&nbsp;${user.id}</p></li>
-                            <li><p><b>Name</b> :&nbsp;${user.fname} ${user.lname}</p></li>
-                            <li><p><b>Email</b> :&nbsp;${user.email}</p></li>
-                            <li><p><b>Username</b> :&nbsp;${user.username}</p></li>
-                            <li><p><b>Address</b> :&nbsp;${user.address}</p></li>
-                            <li><p><b>Contact Number</b> :&nbsp;${user.contactNum}</p></li>
-                            <button style='height:40px; width:120px; border-radius:10px;' onclick="window.location.href = 'delete_user.php?id=${user.id}';">Delete User</button>
-                            <button style='height:40px; width:120px; border-radius:10px;' onclick="window.location.href = 'edit_user.php?id=${user.id}';">Edit User</button>
-                        </ul>
-                    `;
-                } else {
-                    userDetails.innerHTML = `Record with an ID no.&nbsp;<b>${searchId}</b>&nbsp;is not in the database.`;
-                }
-            });
-
-            document.querySelectorAll('.deleteBtn').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const userId = event.target.getAttribute('data-id');
-                    if (confirm(`Are you sure you want to delete user ID ${userId}?`)) {
-                        window.location.href = `delete_user.php?id=${userId}`;
-                    }
-                });
-            });
-
-            document.querySelectorAll('.editBtn').forEach(button => {
-                button.addEventListener('click', (event) => {
-                    const userId = event.target.getAttribute('data-id');
-                    window.location.href = `edit_user.php?id=${userId}`;
-                });
-            });
-        });
-    </script>
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
     <?php
     include 'footer.php';

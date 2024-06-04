@@ -16,84 +16,6 @@ if (
 		<title>Profile</title>
 		<link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
 	</head>
-
-	<!-- Nag Internal CSS muna kasi nagkakaproblema sa External CSS-->
-	<style>
-		/* Para sa list ng navbar sa gilid ng profile page*/
-		.sidenav {
-			list-style-type: none;
-			position: absolute;
-			padding: 50px;
-			border-radius: 10px;
-			margin-top: 5px;
-		}
-
-		/* Para sa link ng Profile Navigation Admin*/
-		.navlink {
-			font-size: 15px;
-			padding-bottom: 15px;
-		}
-
-		.sidenav2 {
-			list-style-type: none;
-			position: absolute;
-			padding: 50px;
-			border-radius: 10px;
-			margin-top: 5px;
-			width: 17.5%;
-			height: 50%;
-		}
-
-		/* Para sa link ng Profile Navigation User*/
-		.navlink2 {
-			font-size: 15px;
-			padding-bottom: 15px;
-		}
-
-		.avatar-container {
-			height: 20%;
-			background-image: url("image/bg.png");
-			padding-top: 10%;
-		}
-
-		.avatar {
-			vertical-align: middle;
-			margin-left: 10%;
-			width: 250px;
-			height: 250px;
-			border-radius: 50%;
-		}
-
-		.display-profile-details {
-			color: white;
-			margin-left: 18%;
-			margin-right: 5%;
-			margin-top: 5px;
-			padding: 4.2%;
-			font-size: 25px;
-			border: 1px solid white;
-			border-radius: 10px;
-		}
-
-		/*Para magpantay sa Account Details*/
-		.alignMe {
-			list-style-type: none;
-		}
-
-		.alignMe b {
-			display: inline-block;
-			width: 50%;
-			position: relative;
-			padding-left: 20%;
-		}
-
-		.alignMe b::after {
-			content: ":";
-			position: absolute;
-			right: 5%;
-		}
-	</style>
-
 	<body>
 
 		<?php include "header.php";
@@ -124,47 +46,13 @@ if (
 		$profile_img = $user['profile_img'];
 		?>
 
-
-
-		<div class="avatar-container">
-		<img src="profile_picture.php?user_id=<?php $id ?>" alt="Profile Image"  class="avatar">
-		</div>
-
-		<?php if (isset($_SESSION['fname']))
-			if ($_SESSION['fname'] == "Administrator") {
-				echo "<ul class='sidenav'>
-				<li class='navlink'>
-					<a href='manage_users.php'>Manage Users</a>
-				</li>
-				<li class='navlink'>
-					<a href='gallery_upload.php'>Upload Gallery</a>
-				</li>
-				<li class='navlink'>
-					<a href='bookings.php'>Appointment Bookings</a>
-				</li>
-				<li class='navlink'>
-					<a href='accepted_booking.php'>Accepted Appointments</a>
-				</li>
-			</ul>"; ?>
-
-		<?php } else {
-				echo "<ul class='sidenav2'>
-				<li class='navlink2'>
-					<a href='edit_user.php'>Edit Profile</a>
-				</li>
-				<li class='navlink2'>
-					<a href=''>Delete Account</a>
-				</li>
-			</ul>";
-			} ?>
-		</div>
-		<?php include "header.php"; ?>
+		
 		<section id="profile-header" class="profile-header">
 			<div class="container">
 				<div class="row justify-content-start">
 					<div class="col-lg-3 col-md-3 col-sm-12 justify-content-center mb-4">
 						<div class="image-wrapper">
-							<img src="image/avatar.jpg" alt="Avatar" class="avatar">
+							<img src="profile_picture.php?user_id=<?php $id ?>" alt="Profile Image"  class="avatar">
 						</div>
 					</div>
 					<div class="col-lg-9 col-lg-9 col-sm-9 mb-4">
@@ -203,8 +91,12 @@ if (
 											<a href='gallery_upload.php'>Upload Gallery</a>
 										</li>
 										<li class='navlink'>
-											<i class='fa-regular fa-calendar-check'></i>&nbsp;&nbsp;
+											<i class='fa-regular fa-calendar-days'></i>&nbsp;&nbsp;
 											<a href='bookings.php'>Appointment Bookings</a>
+										</li>
+										<li class='navlink'>
+											<i class='fa-regular fa-square-check'></i>
+											<a href='accepted_booking.php'>Accepted Appointments</a>
 										</li>
 									</ul>";
 								} else {
