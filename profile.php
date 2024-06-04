@@ -109,6 +109,10 @@ if (
 												<i class='fa-regular fa-trash-can'></i>&nbsp;&nbsp;&nbsp;
 												<a href='delete_user.php'>Delete Account</a>
 											</li>
+											<li class='navlink2'>
+												<i class='fa-regular fa-calendar-check'></i>
+												<a href='booking_status.php'>Booking Status</a>
+											</li>
 										</ul>";
 									}
 								} ?>
