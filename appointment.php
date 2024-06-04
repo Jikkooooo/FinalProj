@@ -44,38 +44,47 @@
                             $book_date = $_POST['date'];
                             $book_time = $_POST['time'];
                             $book_msg = $_POST['message'];
+                            $user_id = $_SESSION['id'];
 
                             // Perform validation to prevent duplicate booking
-                            $sql_check_duplicate = "SELECT * FROM booking WHERE user_id = ? AND book_service = ? AND book_date = ? AND book_time = ?";
+                            $sql_check_duplicate = "SELECT * FROM booking WHERE user_id = ? AND book_date = ?";
                             $stmt_check_duplicate = $dbConn->prepare($sql_check_duplicate);
-                            $stmt_check_duplicate->bind_param("ssss", $_SESSION['id'], $book_service, $book_date, $book_time);
-                            $stmt_check_duplicate->execute();
-                            $result_check_duplicate = $stmt_check_duplicate->get_result();
 
-                            // If a duplicate booking is found, display an error message
-                            if ($result_check_duplicate->num_rows > 0) {
-                                echo "<h3>Error: You already have a booking for the same date, and time.</h3>";
-                            } else {
-                                // Insert the booking if no duplicate is found
-                                $sql_insert_booking = "INSERT INTO booking (user_id, book_service, book_date, book_time, book_msg) VALUES (?, ?, ?, ?, ?)";
-                                $stmt_insert_booking = $dbConn->prepare($sql_insert_booking);
-                                $stmt_insert_booking->bind_param("sssss", $_SESSION['id'], $book_service, $book_date, $book_time, $book_msg);
+                            if ($stmt_check_duplicate) {
+                                $stmt_check_duplicate->bind_param("ss", $user_id, $book_date);
+                                $stmt_check_duplicate->execute();
+                                $result_check_duplicate = $stmt_check_duplicate->get_result();
 
-                                if ($stmt_insert_booking->execute()) {
-                                    echo "<h3>New booking recorded successfully</h3>";
+                                if ($result_check_duplicate->num_rows > 0) {
+                                    echo "<h3>Error: You already have a booking for the same date.</h3>";
                                 } else {
-                                    echo "Error: " . $sql_insert_booking . "<br>" . $dbConn->error;
+
+                                    $sql_insert_booking = "INSERT INTO booking (user_id, book_service, book_date, book_time, book_msg) VALUES (?, ?, ?, ?, ?)";
+                                    $stmt_insert_booking = $dbConn->prepare($sql_insert_booking);
+                                    if ($stmt_insert_booking) {
+                                        $stmt_insert_booking->bind_param("sssss", $user_id, $book_service, $book_date, $book_time, $book_msg);
+
+                                        if ($stmt_insert_booking->execute()) {
+                                            echo "<h3>New booking recorded successfully</h3>";
+                                        } else {
+                                            echo "Error: " . $sql_insert_booking . "<br>" . $dbConn->error;
+                                        }
+
+                                        $stmt_insert_booking->close();
+                                    } else {
+                                        echo "Error preparing statement: " . $dbConn->error;
+                                    }
                                 }
 
-                                $stmt_insert_booking->close();
+                                $stmt_check_duplicate->close();
+                            } else {
+                                echo "Error preparing statement: " . $dbConn->error;
                             }
 
-                            $stmt_check_duplicate->close();
+                            $dbConn->close();
                         }
-
-                        // Close database connection
-                        $dbConn->close();
                         ?>
+
                         <div class="form-group mt-1">
                             <label for="service">Choose a service:</label>
                             <select class="form-control custom-select" id="service" name="service">
@@ -87,7 +96,7 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="date">Appointment Date:</label>
-                                <input type="date" class="form-control" id="date" name="date" required>
+                                <input type="date" class="form-control" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" required>
                             </div>
                             <div class="form-group col-md-6 mt-3 mt-md-0">
                                 <label for="time">Appointment Time:</label>
@@ -99,7 +108,7 @@
                             <textarea class="form-control" name="message" rows="10" required></textarea>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-danger" onclick="window.location.href = '';">BOOK APPOINTMENT</button> <!------------- edit para sa php -->
+                            <button class="btn btn-danger" type="submit">BOOK APPOINTMENT</button> <!------------- edit para sa php -->
                         </div>
                     </form>
                 </div>

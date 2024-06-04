@@ -5,34 +5,14 @@
     <title>Booking</title>
     <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
     <style>
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .gallery img {
-            max-width: 100%;
-            height: auto;
-            margin-bottom: 15px;
-        }
-
-        .gallery-item {
-            flex-basis: calc(33.333% - 10px);
-            box-sizing: border-box;
+        
+        .btn-custom {
+            width: 100%;
             margin-bottom: 10px;
+            /* Ensure there is space between the buttons */
         }
-
-        @media (max-width: 768px) {
-            .gallery-item {
-                flex-basis: calc(50% - 10px);
-            }
-        }
-
-        @media (max-width: 576px) {
-            .gallery-item {
-                flex-basis: 100%;
-            }
+        h2 {
+            text-align: center;
         }
     </style>
 </head>
@@ -46,23 +26,31 @@
         header("Location: login.php");
         exit();
     }
+    include "db_conn.php";
     ?>
     <br>
     <br>
-    <div class="container" style="padding-top: 10%;">
+    <div class="container">
         <?php
         require 'db_conn.php';
 
-        // Fetch bookings from the database
+        // Get the current date
+        $current_date = date('Y-m-d');
+
+        // Fetch bookings from the database, only future and non-accepted bookings
         $sql = "SELECT booking.*, users.fname, users.lname, users.username, users.address, users.contactNum 
         FROM booking
         LEFT JOIN users ON booking.user_id = users.id
+        WHERE booking.book_date >= ? AND (booking.status = 'Pending' OR booking.status IS NULL)
         ORDER BY booking.book_date DESC, booking.book_time DESC";
-        $result = $dbConn->query($sql);
+        $stmt = $dbConn->prepare($sql);
+        $stmt->bind_param("s", $current_date);
+        $stmt->execute();
+        $result = $stmt->get_result();
         ?>
 
         <div class="container mt-5">
-            <h2 class="mb-4">Dashboard</h2>
+            <h2>Appointment Bookings</h2>
 
             <?php if ($result->num_rows > 0) : ?>
                 <table class="table table-bordered">
@@ -74,15 +62,12 @@
                             <th>Appointment Date</th>
                             <th>Appointment Time</th>
                             <th>Message</th>
-                            <th>First Name</th>
-                            <th>Last Name</th>
-                            <th>Username</th>
-                            <th>Address</th>
-                            <th>Contact Number</th>
+                            <th>User Details</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($result as $row) : ?>
+                        <?php while ($row = $result->fetch_assoc()) : ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($row['book_id']); ?></td>
                                 <td><?php echo isset($row['user_id']) ? htmlspecialchars($row['user_id']) : 'N/A'; ?></td>
@@ -90,24 +75,40 @@
                                 <td><?php echo htmlspecialchars($row['book_date']); ?></td>
                                 <td><?php echo htmlspecialchars($row['book_time']); ?></td>
                                 <td><?php echo htmlspecialchars($row['book_msg']); ?></td>
-                                <td><?php echo isset($row['fname']) ? htmlspecialchars($row['fname']) : 'N/A'; ?></td>
-                                <td><?php echo isset($row['lname']) ? htmlspecialchars($row['lname']) : 'N/A'; ?></td>
-                                <td><?php echo isset($row['username']) ? htmlspecialchars($row['username']) : 'N/A'; ?></td>
-                                <td><?php echo isset($row['address']) ? htmlspecialchars($row['address']) : 'N/A'; ?></td>
-                                <td><?php echo isset($row['contactNum']) ? htmlspecialchars($row['contactNum']) : 'N/A'; ?></td>
+                                <td>
+                                    <strong>First Name:</strong> <?php echo isset($row['fname']) ? htmlspecialchars($row['fname']) : 'N/A'; ?><br>
+                                    <strong>Last Name:</strong> <?php echo isset($row['lname']) ? htmlspecialchars($row['lname']) : 'N/A'; ?><br>
+                                    <strong>Username:</strong> <?php echo isset($row['username']) ? htmlspecialchars($row['username']) : 'N/A'; ?><br>
+                                    <strong>Address:</strong> <?php echo isset($row['address']) ? htmlspecialchars($row['address']) : 'N/A'; ?><br>
+                                    <strong>Contact Number:</strong> <?php echo isset($row['contactNum']) ? htmlspecialchars($row['contactNum']) : 'N/A'; ?>
+                                </td>
+                                <td>
+                                    <form action="accept_booking.php" method="post" style="margin-bottom: 10px;">
+                                        <input type="hidden" name="book_id" value="<?php echo htmlspecialchars($row['book_id']); ?>">
+                                        <button type="submit" class="btn btn-success btn-custom">Accept Booking</button>
+                                    </form>
+                                    <form action="reject_booking.php" method="post" style="margin-bottom: 10px;">
+                                        <input type="hidden" name="book_id" value="<?php echo htmlspecialchars($row['book_id']); ?>">
+                                        <button type="submit" class="btn btn-danger btn-custom">Reject Booking</button>
+                                    </form>
+                                </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php endwhile; ?>
                     </tbody>
                 </table>
+                <?php
+                echo " <button class='btn btn-light' onclick='history.back()'>Go Back</button>
+                <a href='accepted_booking.php' class='btn btn-light' role='button' style='margin:10px;'>Accepted Appointments</a>";
+                ?>
             <?php else : ?>
                 <p class="alert alert-info">No data found.</p>
             <?php endif; ?>
 
-            <?php $dbConn->close(); // Close the database connection 
+            <?php $dbConn->close();
             ?>
         </div>
-
     </div>
+
 
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
     <?php
