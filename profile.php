@@ -91,11 +91,11 @@ if (
 											<a href='gallery_upload.php'>Upload Gallery</a>
 										</li>
 										<li class='navlink'>
-											<i class='fa-regular fa-calendar-days'></i>&nbsp;&nbsp;
+											<i class='fa-regular fa-calendar-days'></i>&nbsp;&nbsp;&nbsp;
 											<a href='bookings.php'>Appointment Bookings</a>
 										</li>
 										<li class='navlink'>
-											<i class='fa-regular fa-square-check'></i>
+											<i class='fa-regular fa-square-check'></i>&nbsp;&nbsp;&nbsp;
 											<a href='accepted_booking.php'>Accepted Appointments</a>
 										</li>
 									</ul>";
@@ -110,7 +110,7 @@ if (
 												<a href='delete_user.php'>Delete Account</a>
 											</li>
 											<li class='navlink2'>
-												<i class='fa-regular fa-calendar-check'></i>
+												<i class='fa-regular fa-calendar-check'></i>&nbsp;&nbsp;&nbsp;
 												<a href='booking_status.php'>Booking Status</a>
 											</li>
 										</ul>";
@@ -119,7 +119,7 @@ if (
 						</div>
 						<?php if (isset($_SESSION['fname'])) {
 							if ($_SESSION['fname'] != "Administrator") {
-								echo "<div class='d-grid'><button class='btn btn-danger btn-sm mt-4 mb-2' id='btn-profile' style='width: 100%;' onclick=\"window.location.href='appointment.php';\">Book an appointment</button></div>";
+								echo "<div class='d-grid'><button class='btn btn-danger btn-sm mt-4 mb-2' id='btn-profile' style='width: 100%;' onclick=\"window.location.href='appointment.php';\">Book appointment</button></div>";
 							}
 						} ?>
 					</div>
