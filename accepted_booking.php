@@ -9,12 +9,6 @@
             font-family: Arial, sans-serif;
         }
 
-        .container {
-            padding-top: 10%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
 
         .table-container {
             width: 100%;
@@ -27,18 +21,24 @@
             margin: 20px 0;
             font-size: 18px;
             text-align: left;
+            border: 1px solid white;
         }
 
         th,
         td {
             padding: 12px;
-            border: 1px solid red;
+            border: 1px solid white;
 
+        }
+
+        .container h2 {
+            font-size: 60px;;
+            text-align: center;
         }
 
         th {
             background-color: black;
-            border: 1px solid red;
+            border: 1px solid white;
         }
 
         tr:hover {
@@ -49,6 +49,20 @@
         h2 {
             text-align: center;
         }
+
+        table {
+            margin: auto;
+            font-family: "Oswald";
+        }
+
+        table th {
+            font-family: "Bebas Neue";
+            font-size: 25px;
+            text-align: center;
+            justify-content: center;
+            margin: auto;
+            letter-spacing: 2px;
+        }
     </style>
 </head>
 
@@ -58,6 +72,14 @@
     include "header.php";
     include "db_conn.php";
     ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="container">
         <div class="table-container">
             <?php
@@ -71,7 +93,7 @@
             $result = $dbConn->query($sql);
 
             if ($result->num_rows > 0) {
-                echo "<h2>Accepted Bookings</h2>";
+                echo "<h2 class='mb-4'>Accepted Bookings</h2>";
                 echo "<table>";
                 echo "<tr><th>Booking ID</th><th>User ID</th><th>Service</th><th>Appointment Date</th><th>Appointment Time</th><th>User Details</th></tr>";
                 while ($row = $result->fetch_assoc()) {
@@ -91,8 +113,8 @@
                     echo "</tr>";
                 }
                 echo "</table>";
-                echo "<button class='btn btn-light' onclick='history.back()'>Go Back</button>";
-                echo "<a href='bookings.php' class='btn btn-light' role='button' style='margin:10px;'>Appointment Bookings</a>";
+                echo "<button class='btn btn-secondary btn-back' onclick='history.back()'>Go Back</button>";
+                echo "<a href='bookings.php' class='btn btn-secondary btn-back' role='button' style='margin:10px;'>Appointment Bookings</a>";
             } else {
                 echo "<p>No accepted bookings found.</p>";
             }
@@ -101,6 +123,13 @@
             ?>
         </div>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
     <?php
     include 'footer.php';

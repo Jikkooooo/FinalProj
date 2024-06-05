@@ -4,6 +4,47 @@
 <head>
     <title>Upload</title>
     <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
+    <style>
+        .upload-card {
+            border: 1px solid red;
+            border-radius: 10px;
+            padding: 35px;
+            background-color: #da1e17;
+            color: #fff;
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .upload-card:hover {
+            background-color: #1b1b1b;
+            color: #da1e17;
+            box-shadow: 0 0 10px #ffffff, 0 0 13px #ffffff;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            z-index: 100;
+        }
+
+        .nav-link h2 {
+            font-size: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-link h2 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .nav-link h2 {
+                font-size: 4rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -11,20 +52,42 @@
     session_start();
     include "header.php";
     ?>
-    <div class="main-Container" style="display: flex; justify-content:center; align-items:center; min-height:100vh; ">
-        <div style="padding: 50px; border: 1px solid red; border-radius: 10px; width: 40%; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 10px;">
-            <a class="nav-link" href="piercing_upload.php">
-                <center><h2> Upload in PIERCING</h2></center>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+        <div class="upload-card col-lg-6 col-md-6">
+            <a class="nav-link" href="piercing_upload.php" style="color:#fff">
+                <h2>Upload in PIERCING</h2>
             </a>
         </div>
-
-        <div style="padding: 50px; border: 1px solid red; border-radius: 10px; width: 40%; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 10px;">
-            <a class="nav-link" href="tattoo_upload.php">
-                <center><h2>Upload in TATTOO</h2></center>
+        <div class="upload-card col-lg-6 col-md-6 mt-3">
+            <a class="nav-link" href="tattoo_upload.php" style="color:#fff">
+                <h2>Upload in TATTOO</h2>
             </a>
         </div>
-
+        <button onclick="history.back()" class="btn btn-secondary btn-back mt-5">Go Back</button>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
     <?php
     include 'footer.php';

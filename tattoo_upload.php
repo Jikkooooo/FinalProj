@@ -5,20 +5,31 @@
     <title>Tattoo Upload</title>
     <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
     <style>
-        .upload_container {
-            padding-top: 10%;
-        }
-
         .upload_form {
             padding: 50px;
             border: 1px solid red;
             border-radius: 10px;
-            width: 40%;
+            width: 80%;
             max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
+            background-color: #000;
         }
+
+        .upload_form form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .upload_form form input[type="text"],
+        .upload_form form input[type="file"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        .upload_form form button {
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 
@@ -27,9 +38,19 @@
     session_start();
     include "header.php";
     require "db_conn.php";
-
     ?>
-    <div class="upload_container" style="display: flex; justify-content:center; align-items:center; min-height:100vh;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="upload_form">
             <center>
                 <h1>Upload File in Tattoo</h1>
@@ -38,7 +59,7 @@
                     <input type="text" name="name" id="name" required> <br>
                     <label for="image">Image : </label>
                     <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png"> <br> <br>
-                    <button type="submit" name="submit">Submit</button>
+                    <button type="submit" name="submit" class="btn btn-danger">Submit</button>
                 </form>
                 <?php
                 if ($dbConn->connect_error) {
@@ -91,16 +112,25 @@
                 }
                 ?>
                 <br><br>
-                <button onclick="history.back()">Go Back</button>
+                <button onclick="history.back()" class="btn btn-secondary btn-back">Go Back</button>
                 <a href="tattoo_upload_data.php">
-                    <button>Data</button>
+                    <button class="btn btn-secondary btn-back">Data</button>
                 </a>
             </center>
         </div>
     </div>
-
-
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
+    <?php
+    include 'footer.php';
+    ?>
+    
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

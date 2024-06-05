@@ -33,10 +33,6 @@
             <h1 style="font-size: 58px;"><center>Frequently Asked Questions (FAQ)</center></h1>
 
             <div class="faq-box">
-                <div>
-                    <h2 style="font-family: Bebas Neue;">How do I book an appointment?</h2>
-                    <p style="font-family: Oswald; text-indent: 5%;">- To book an appointment, click <a href="bookings.php">here</a>.</p>
-                </div>
 
                 <div>
                     <h2 style="font-family: Bebas Neue; margin-top: 40px;">Do you also tattoo in color?</h2>
@@ -54,11 +50,6 @@
                 <div>
                     <h2 style="font-family: Bebas Neue; margin-top: 40px;">What are the things I should know in advance in order to prepare for my session?</h2>
                     <p style="font-family: Oswald; text-indent: 5%;">- Prepare for your tattoo session by: deciding on your design and its placement, ensuring you're in good health, eating a good meal beforehand, and avoiding alcohol and drugs.</p>
-                </div>
-
-                <div>
-                    <h2 style="font-family: Bebas Neue; margin-top: 40px;">Do you do cover ups?</h2>
-                    <p style="font-family: Oswald; text-indent: 5%;">- Yes! If there's a tattoo you're not happy with anymore, we'd love to help turn it into something you'll love. Just get in touch with one of our artists to talk about changing it.</p>
                 </div>
 
                 <div>
