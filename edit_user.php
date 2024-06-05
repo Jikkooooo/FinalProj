@@ -78,7 +78,7 @@
 
                 // Update displayed values
                 $fname = $edt_fname;
-                $lname = $lname;
+                $lname = $edt_lname;
                 $email = $edt_email;
                 $address = $edt_address;
                 $contactNum = $edt_contactNum;

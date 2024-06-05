@@ -1,8 +1,6 @@
 <?php
 
 //PASSING BLOB DATA FROM PROFILE_PIC TO USERS
-
-session_start();
 include "db_conn.php";
 include "header.php";
 
@@ -42,16 +40,16 @@ if ($result->num_rows > 0) {
         $stmt->send_long_data(0, $random_img);
 
         if ($stmt->execute() === TRUE) {
-            echo "User ID $user_id updated successfully with a random profile image.\n";
+            echo "";
         } else {
-            echo "Error updating record for user ID $user_id: " . $stmt->error . "\n";
+            echo "";
         }
 
         $stmt->close();
     }
-    echo "All users have been updated with random profile images.";
+    echo "";
 } else {
-    echo "No users found";
+    echo "";
 }
 
 // Close connection

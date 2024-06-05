@@ -8,9 +8,12 @@
 </head>
 
 <body>
+  
   <?php
   session_start();
+  include 'image_profile.php';
   include 'header.php';
+  
   ?>
 
   <!-- START OF HERO -->
