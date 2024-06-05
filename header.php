@@ -51,7 +51,7 @@
                     <?php if (isset($_SESSION['fname'])) {  ?>
                         <li class="nav-item dropdown">
                     <?php if (isset($_SESSION['fname']))
-                    if($_SESSION['fname'] == "Administrator"){
+                    if($_SESSION['role'] == "Admin"){
                         echo "<a href='profile.php' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>". $_SESSION['fname']."</a>"; ?>
                         <?php } else { echo "<a href='profile.php' class='nav-link dropdown-toggle' id='navbarDropdownMenuLink' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>". $_SESSION['fname']," ". $_SESSION['lname']."</a>"; }?>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">

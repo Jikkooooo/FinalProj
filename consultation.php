@@ -13,25 +13,25 @@
     include "db_conn.php";
     ?>
     <section id="tattoo-header" class="tattoo-header">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="image-wrapper">
-						<img src="image/consult-header.png" class="img-fluid" alt="Tattoo Gallery">
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="image-wrapper">
+                        <img src="image/consult-header.png" class="img-fluid" alt="Tattoo Gallery">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section id="profile-message" class="profile-message">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-12 d-flex align-items-center justify-content-center">
-					<h2>WHAT CAN YOU EXPECT FROM US?</h2>
-				</div>
-			</div>
-		</div>
-	</section>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 d-flex align-items-center justify-content-center">
+                    <h2>WHAT CAN YOU EXPECT FROM US?</h2>
+                </div>
+            </div>
+        </div>
+    </section>
     <br>
     <br>
     <section id="tattoo" class="tattoo d-flex d-flex align-items-center justify-content-center mt-2">
@@ -51,7 +51,11 @@
                 <div class="col-lg-4">
                     <div class="btn-container justify-content-center text-center">
                         <h3 class="center-text">Thinking about consulting for a tattoo?</h3>
-                        <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book Now!</button>
+                        <?php if (isset($_SESSION['role'])) {  ?>
+                            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book HERE</button>
+                        <?php } else { ?>
+                            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'registration.php';">SIGN UP NOW To BOOK NOW</button>
+                        <?php } ?>
                     </div>
                     <div class="btn-container justify-content-center text-center mt-4">
                         <h3 class="center-text">Have any questions?</h3>
@@ -64,11 +68,11 @@
 
     <br>
     <br>
-    
+
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
-	<?php
-	include 'footer.php';
-	?>
+    <?php
+    include 'footer.php';
+    ?>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

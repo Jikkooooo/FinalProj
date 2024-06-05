@@ -36,6 +36,7 @@ if(isset($_POST['uname']) &&
           $address = $user['address'];
           $contactNum = $user['contactNum'];
           $id =  $user['id'];
+          $role = $user['role'];
           if($username === $uname){
              if(password_verify($pass, $password)){
                  $_SESSION['id'] = $id;
@@ -44,6 +45,7 @@ if(isset($_POST['uname']) &&
                  $_SESSION['email'] = $email;
                  $_SESSION['address'] = $address;
                  $_SESSION['contactNum'] = $contactNum;
+                 $_SESSION['role'] = $role;
                  
 
 

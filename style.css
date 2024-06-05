@@ -368,6 +368,22 @@ body {
   box-shadow: 0 0 10px #ffffff, 0 0 13px #ffffff;
 }
 
+.btn-success {
+  margin-top: 20px;
+  color: whitesmoke;
+  background-color: #58a822;
+  padding: 10px 30px 10px 30px;
+  /* width: auto; */
+  letter-spacing: 2px;
+  font-size: 18px;
+}
+
+.btn-success:hover {
+  background-color: whitesmoke;
+  color: #58a822;
+  box-shadow: 0 0 10px #ffffff, 0 0 13px #ffffff;
+}
+
 /*--------------------------------------------------------------
 # (index) VISIT US
 --------------------------------------------------------------*/

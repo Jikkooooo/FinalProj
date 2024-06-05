@@ -58,10 +58,8 @@
             <a href="https://www.instagram.com/toxz_tattoo/" class="instagram"><i class="fa-brands fa-square-instagram"></i></a>
             <a href="https://www.tiktok.com/@arneltabigoon" class="tiktok"><i class="fa-brands fa-tiktok"></i></a>
           </div>
-          <?php if (isset($_SESSION['fname'])) {  ?>
-            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book HEre</button>
-            <?php if (isset($_SESSION['fname'])) ?>
-
+          <?php if (isset($_SESSION['role'])) {  ?>
+            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book HERE</button>
           <?php } else { ?>
             <button class="btn btn-danger btn-sm" onclick="window.location.href = 'registration.php';">SIGN UP NOW</button>
           <?php } ?>

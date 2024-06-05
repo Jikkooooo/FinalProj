@@ -51,7 +51,11 @@
                 <div class="col-lg-4">
                     <div class="btn-container justify-content-center text-center">
                         <h3 class="center-text">Considering getting a piercing?</h3>
-                        <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book Now!</button>
+                        <?php if (isset($_SESSION['role'])) {  ?>
+                            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book HERE</button>
+                        <?php } else { ?>
+                            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'registration.php';">SIGN UP NOW To BOOK NOW</button>
+                        <?php } ?>
                     </div>
                     <div class="btn-container justify-content-center text-center mt-4">
                         <h3 class="center-text">Have any questions?</h3>

@@ -79,8 +79,8 @@ if (
 				<div class="row justify-content-center">
 					<div class="col-lg-3 col-md-4 mt-3">
 						<div class="profile-controls">
-							<?php if (isset($_SESSION['fname'])) {
-								if ($_SESSION['fname'] == "Administrator") {
+							<?php if (isset($_SESSION['role'])) {
+								if ($_SESSION['role'] == "Admin") {
 									echo "<ul class='sidenav'>
 										<li class='navlink'>
 											<i class='fa-regular fa-address-book'></i>&nbsp;&nbsp;&nbsp;
@@ -103,11 +103,11 @@ if (
 									echo "<ul class='sidenav2'>
 											<li class='navlink2'>
 												<i class='fa-regular fa-pen-to-square'></i>&nbsp;&nbsp;&nbsp;
-												<a href='edit_user.php'>Edit Profile</a>
+												<a href='edit_profile.php'>Edit Profile</a>
 											</li>
 											<li class='navlink2'>
 												<i class='fa-regular fa-trash-can'></i>&nbsp;&nbsp;&nbsp;
-												<a href='delete_user.php'>Delete Account</a>
+												<a href='delete_profile.php'>Delete Account</a>
 											</li>
 											<li class='navlink2'>
 												<i class='fa-regular fa-calendar-check'></i>&nbsp;&nbsp;&nbsp;
@@ -117,8 +117,8 @@ if (
 									}
 								} ?>
 						</div>
-						<?php if (isset($_SESSION['fname'])) {
-							if ($_SESSION['fname'] != "Administrator") {
+						<?php if (isset($_SESSION['role'])) {
+							if ($_SESSION['role'] != "Admin") {
 								echo "<div class='d-grid'><button class='btn btn-danger btn-sm mt-4 mb-2' id='btn-profile' style='width: 100%;' onclick=\"window.location.href='appointment.php';\">Book appointment</button></div>";
 							}
 						} ?>
@@ -128,8 +128,8 @@ if (
 						<div class="profile-details">
 							<h3>Account Details</h3>
 							<br>
-							<?php if (isset($_SESSION['fname']))
-								if ($_SESSION['fname'] == "Administrator") {
+							<?php if (isset($_SESSION['role']))
+								if ($_SESSION['role'] == "Admin") {
 									echo "<ul class='alignMe'>
 								<li><b>Role&nbsp;&nbsp;:&nbsp;&nbsp;</b> " . $_SESSION['fname'] . "&nbsp;&nbsp;&nbsp;<i class='fa-solid fa-crown'></i></li>
 								<li><b>Last Name&nbsp;&nbsp;:&nbsp;&nbsp;</b> " .  $_SESSION['lname'] . "</li>
