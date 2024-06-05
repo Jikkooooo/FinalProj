@@ -11,8 +11,22 @@
             margin-bottom: 10px;
             /* Ensure there is space between the buttons */
         }
-        h2 {
+        .container h2 {
+            font-size: 60px;;
             text-align: center;
+        }
+        table {
+            margin: auto;
+            font-family: "Oswald";
+        }
+
+        table th {
+            font-family: "Bebas Neue";
+            font-size: 25px;
+            text-align: center;
+            justify-content: center;
+            margin: auto;
+            letter-spacing: 2px;
         }
     </style>
 </head>
@@ -28,6 +42,12 @@
     }
     include "db_conn.php";
     ?>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <br>
     <br>
     <div class="container">
@@ -49,8 +69,8 @@
         $result = $stmt->get_result();
         ?>
 
-        <div class="container mt-5">
-            <h2>Appointment Bookings</h2>
+        <div class="container mt-1">
+            <h2 class="mb-4">Appointment Bookings</h2>
 
             <?php if ($result->num_rows > 0) : ?>
                 <table class="table table-bordered">
@@ -97,8 +117,8 @@
                     </tbody>
                 </table>
                 <?php
-                echo " <button class='btn btn-light' onclick='history.back()'>Go Back</button>
-                <a href='accepted_booking.php' class='btn btn-light' role='button' style='margin:10px;'>Accepted Appointments</a>";
+                echo " <button class='btn btn-secondary btn-back' onclick='history.back()'>Go Back</button>
+                <a href='accepted_booking.php' class='btn btn-secondary btn-back' role='button' style='margin:10px;'>Accepted Appointments</a>";
                 ?>
             <?php else : ?>
                 <p class="alert alert-info">No data found.</p>
@@ -108,7 +128,13 @@
             ?>
         </div>
     </div>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
     <?php
