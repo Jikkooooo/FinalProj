@@ -24,47 +24,6 @@ mysqli_close($dbConn);
 <head>
     <title>Manage Users</title>
     <link rel="icon" type="image/x-icon" href="image/toxzlogo.png">
-
-    <style>
-        .search-bar {
-            padding-top: 10%;
-            max-width: fit-content;
-            margin-inline: auto;
-        }
-
-        .display-user-details {
-            color: white;
-            margin-top: 5px;
-            padding: 3%;
-            font-size: 25px;
-            border: 1px solid white;
-            border-radius: 10px;
-            width: 90%;
-            max-width: fit-content;
-            margin-inline: auto;
-        }
-
-        .alignMe {
-            list-style-type: none;
-        }
-
-        table {
-            width: 90%;
-            margin: auto;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: center;
-        }
-
-        th {
-            background-color: gray;
-        }
-    </style>
 </head>
 
 <body>
@@ -75,65 +34,77 @@ mysqli_close($dbConn);
         die("Connection failed: " . mysqli_connect_error());
     }
     ?>
-    <br><br>
-    <div class="search-bar" style="display: flex; justify-content:center; align-items:center;">
-        <form method="get" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-            <div class="">
-                <h3 style="text-align: center;">Search User ID</h3>
-                <br>
-                <input type="text" name="id" class="form-control" style="height:40px; width:auto" />
-                <br>
-                <center><input type="submit" name="search" value="Search" style="height:30px; width:70px;" /></center>
+    <section class="manage-header" id="manage-header">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-12 mt-5 align-items-center">
+                    <h1>MANAGE USERS</h1>
+                </div>
             </div>
-        </form>
-    </div>
+        </div>
+    </section>
 
-    <br><br>
-    <div class="display-user-details" style="display: flex; justify-content:center; align-items:center;">
-        <?php
-        if (isset($_GET['search'])) {
-            if (isset($_GET['id'])) {
-                $id = (int) $_GET['id'];
-                $sql = "SELECT * FROM users WHERE id = " . $id;
+    <section class="search-bar" id="search-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-sm-12">
+                    <form class="search-form">
+                        <h3 style="text-align: center;">Search User ID</h3>
+                        <input type="text" id="searchId" class="form-control" />
+                        <input type="button" id="searchButton" value="Search" class="btn btn-primary search-btn mt-2" />
+                    </form>
+                </div>
+                <div class="col-lg-9 col-md-8 col-sm-12">
+                    <div class="display-user-details" id="userDetails">
+                    <?php
+                        if (isset($_GET['search'])) {
+                            if (isset($_GET['id'])) {
+                                $id = (int) $_GET['id'];
+                                $sql = "SELECT * FROM users WHERE id = " . $id;
 
-                $result = mysqli_query($dbConn, $sql);
+                                $result = mysqli_query($dbConn, $sql);
 
-                if (!$result) {
-                    printf("Error: %s\n", mysqli_error($dbConn));
-                    exit();
-                } else {
-                    if ($row = mysqli_fetch_assoc($result)) {
-                        if (isset($_SESSION['fname']) && $row["fname"] == "Administrator") {
-                            echo "<ul class='alignMe'>";
-                            echo "<li><p><b>ID</b> :&nbsp;" . $row["id"] . "</p></li>";
-                            echo "<li><p><b>Name</b> :&nbsp;" . $row["fname"] . "</p></li>";
-                            echo "</ul>";
-                        } else {
-                            echo "<ul class='alignMe'>";
-                            echo "<li><p><b>ID</b> :&nbsp;" . $row["id"] . "</p></li>";
-                            echo "<li><p><b>Name</b> :&nbsp;" . $row["fname"] . " " . $row["lname"] . "</p></li>";
-                            echo "<li><p><b>Email</b> :&nbsp;" . $row["email"] . "</p></li>";
-                            echo "<li><p><b>Username</b> :&nbsp;" . $row["username"] . "</p></li>";
-                            echo "<li><p><b>Address</b> :&nbsp;" . $row["address"] . "</p></li>";
-                            echo "<li><p><b>Contact Number</b> :&nbsp;" . $row["contactNum"] . "</p></li>";
-                            echo "<button style='height:40px; width:120px; border-radius:10px;' onclick=\"window.location.href = 'delete_user.php?id=" . $row["id"] . "';\">Delete User</button>";
-                            echo "<button style='height:40px; width:120px; border-radius:10px;' onclick=\"window.location.href = 'edit_user.php?id=" . $row["id"] . "';\">Edit User</button>";
-                            echo "</ul>";
+                                if (!$result) {
+                                    printf("Error: %s\n", mysqli_error($dbConn));
+                                    exit();
+                                } else {
+                                    if ($row = mysqli_fetch_assoc($result)) {
+                                        if (isset($_SESSION['fname']) && $row["fname"] == "Administrator") {
+                                            echo "<ul class='alignMe'>";
+                                            echo "<li><p><b>ID</b> :&nbsp;" . $row["id"] . "</p></li>";
+                                            echo "<li><p><b>Name</b> :&nbsp;" . $row["fname"] . "</p></li>";
+                                            echo "</ul>";
+                                        } else {
+                                            echo "<ul class='alignMe'>";
+                                            echo "<li><p><b>ID</b> :&nbsp;" . $row["id"] . "</p></li>";
+                                            echo "<li><p><b>Name</b> :&nbsp;" . $row["fname"] . " " . $row["lname"] . "</p></li>";
+                                            echo "<li><p><b>Email</b> :&nbsp;" . $row["email"] . "</p></li>";
+                                            echo "<li><p><b>Username</b> :&nbsp;" . $row["username"] . "</p></li>";
+                                            echo "<li><p><b>Address</b> :&nbsp;" . $row["address"] . "</p></li>";
+                                            echo "<li><p><b>Contact Number</b> :&nbsp;" . $row["contactNum"] . "</p></li>";
+                                            echo "<button class='btn btn-danger btn-delete mt-2' onclick=\"window.location.href = 'delete_user.php?id=" . $row["id"] . "';\">Delete User</button>";
+                                            echo "<button class='btn btn-primary btn-edit mt-2' onclick=\"window.location.href = 'edit_user.php?id=" . $row["id"] . "';\">Edit User</button>";
+                                            echo "</ul>";
+                                        }
+                                    } else {
+                                        echo "Record with an ID no.&nbsp;<b>{$_GET['id']}</b>&nbsp;is not in the database.";
+                                    }
+                                }
+                            }
                         }
-                    } else {
-                        echo "Record with an ID no.&nbsp;<b>{$_GET['id']}</b>&nbsp;is not in the database.";
-                    }
-                }
-            }
-        }
-        ?>
-    </div>
-    <br>
-    <div style="max-width: fit-content; margin-inline: auto;">
-        <?php
-        echo "<h3>Records displayed using HTML table</h3>";
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        echo "<table class='table'>";
+    <br>
+    <div class="container mt-4">
+        <?php
+        echo "<center><h3>Records displayed using HTML table</h3></center>";
+
+        echo "<table id='userTable' class='table table-bordered table-striped'>";
         echo "<thead class='thead-dark'>";
         echo "<tr>";
         echo "<th scope='col'>ID</th>";
@@ -162,8 +133,8 @@ mysqli_close($dbConn);
                 echo "<td>" . $row["address"] . "</td>";
                 echo "<td>" . $row["contactNum"] . "</td>";
                 echo "<td>";
-                echo "<button style='height:30px; width:70px; margin-right:5px;' onclick=\"window.location.href = 'delete_user.php?id=" . $row["id"] . "';\">Delete</button>";
-                echo "<button style='height:30px; width:70px;' onclick=\"window.location.href = 'edit_user.php?id=" . $row["id"] . "';\">Edit</button>";
+                echo "<button class='btn btn-danger btn-delete mt-2 mr-2' onclick=\"window.location.href = 'delete_user.php?id=" . $row["id"] . "';\">Delete</button>";
+                echo "<button class='btn btn-primary btn-edit mt-2' onclick=\"window.location.href = 'edit_user.php?id=" . $row["id"] . "';\">Edit</button>";
                 echo "</td>";
                 echo "</tr>";
             }
@@ -177,10 +148,12 @@ mysqli_close($dbConn);
         ?>
     </div>
     <br>
-    <div style="max-width: fit-content; margin-inline: auto;">
-        <center><button style="height:40px; width:170px; border-radius:10px;" onclick="window.location.href = 'profile.php';">Go Back</button></center>
+    <div class="container mt-4 text-center">
+        <button class="btn btn-secondary btn-back" onclick="window.location.href = 'profile.php';">Go Back</button>
     </div>
-
+    <br>
+    <br>
+    <br>
     <button onclick="topFunction()" id="back-to-top" title="Go to top">Top</button>
 		<?php
 		include 'footer.php';

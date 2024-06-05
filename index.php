@@ -27,7 +27,7 @@
           <h2 class="col-lg-12">WANT TO BOOK AN APPOINTMENT?</h2>
           <!--para mawala yung signup button pag nakalogin na-->
           <?php if (isset($_SESSION['fname'])) {  ?>
-            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book HEre</button>
+            <button class="btn btn-danger btn-sm" onclick="window.location.href = 'appointment.php';">Book Here</button>
             <?php if (isset($_SESSION['fname'])) ?>
 
           <?php } else { ?>
